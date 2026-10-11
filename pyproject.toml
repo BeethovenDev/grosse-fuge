@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grosse-fuge"
+version = "0.1.0"
+description = "PII redaction pipeline — mask and pseudonymise personal data before it leaves the room. Named after Beethoven's Große Fuge, Op. 133."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "The GROSSE FUGUE Authors" }]
+keywords = ["pii", "redaction", "privacy", "pseudonym", "luhn", "csv", "json"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Security",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+grosse-fuge = "grosse_fuge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM", "ARG", "RUF"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
