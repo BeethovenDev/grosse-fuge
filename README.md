@@ -46,7 +46,7 @@ grosse-fuge redact export.csv --out export.clean.csv
 grosse-fuge redact notes.txt --in-place
 
 # Treat names as sensitive (whole words, case-insensitive)
-grosse-fuge redact roster.x.csv --out roster.csv --names ./team-names.txt
+grosse-fuge redact roster.csv --out roster.clean.csv --names ./team-names.txt
 
 # Reversible, joinable pseudonyms (keep --salt secret and stable!)
 grosse-fuge redact probe-data.json --out p.json --mode pseudonym --salt "$SECRET"
